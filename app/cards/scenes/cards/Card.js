@@ -22,6 +22,11 @@ export default class Card extends React.Component {
         <Text style={styles.title}>
           {this.props.title}
         </Text>
+        <Text style={styles.title}>
+          ${this.props.cost}
+        </Text>
+
+
       </View>
     )
   }
@@ -29,4 +34,5 @@ export default class Card extends React.Component {
 
 Card.propTypes = {
   title: React.PropTypes.string.isRequired,
+  cost: React.PropTypes.number.isRequired,
 }

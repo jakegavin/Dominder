@@ -1,9 +1,9 @@
 import React from "react"
 import Card from "./Card"
 import CardStack from "./CardStack"
+import SetStats from "./SetStats"
 import { Text, TouchableHighlight, View } from "react-native"
 import { List, Map } from "immutable"
-
 
 export default class Cards extends React.Component {
   render() {
@@ -19,14 +19,14 @@ export default class Cards extends React.Component {
           renderEmptyStack={this.renderEmptyStack.bind(this)}
           setCurrentCard={this.props.setCurrentCard}
         />
-        <Text>Accepted card count: {this.props.set.size}</Text>
+        <SetStats setCards={this.props.set} />
     </View>
     )
   }
 
   renderCard(cardData) {
-    const { title } = cardData
-    return <Card title={title} />
+    const { cost, title } = cardData
+    return <Card title={title} cost={cost} />
   }
 
   renderEmptyStack() {
