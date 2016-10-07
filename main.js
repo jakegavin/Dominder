@@ -1,4 +1,4 @@
 import Exponent from "exponent"
-import App from "./app/App"
+import AppContainer from "./app/AppContainer"
 
-Exponent.registerRootComponent(App);
+Exponent.registerRootComponent(AppContainer);
