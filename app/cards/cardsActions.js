@@ -5,6 +5,12 @@ export const addCardToSet = (card) => {
   }
 }
 
+export const resetCardPile = () => {
+  return {
+    type: "CARDS_RESET_PILE",
+  }
+}
+
 export const setCurrentCard = (card) => {
   return {
     type: "CARDS_SET_CURRENT_CARD",

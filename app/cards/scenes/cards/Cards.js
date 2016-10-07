@@ -1,7 +1,7 @@
 import React from "react"
 import Card from "./Card"
 import CardStack from "./CardStack"
-import { Text, View } from "react-native"
+import { Text, TouchableHighlight, View } from "react-native"
 import { List, Map } from "immutable"
 
 
@@ -16,7 +16,7 @@ export default class Cards extends React.Component {
           onAccept={this.props.onAcceptCard}
           onDecline={this.handleDecline}
           renderCard={this.renderCard}
-          renderEmptyStack={this.renderEmptyStack}
+          renderEmptyStack={this.renderEmptyStack.bind(this)}
           setCurrentCard={this.props.setCurrentCard}
         />
         <Text>Accepted card count: {this.props.set.size}</Text>
@@ -30,7 +30,14 @@ export default class Cards extends React.Component {
   }
 
   renderEmptyStack() {
-    return <Text>No more cards :(</Text>
+    return (
+      <View>
+        <TouchableHighlight onPress={this.props.onReset}>
+          <Text>Reset pile?</Text>
+        </TouchableHighlight>
+        <Text>No more cards :(</Text>
+      </View>
+    )
   }
 
   handleDecline(card) {
@@ -42,5 +49,6 @@ Cards.propTypes = {
   cards: React.PropTypes.instanceOf(List),
   currentCard: React.PropTypes.object,
   onAcceptCard: React.PropTypes.func.isRequired,
+  onReset: React.PropTypes.func.isRequired,
   setCurrentCard: React.PropTypes.func.isRequired,
 }

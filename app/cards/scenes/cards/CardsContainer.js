@@ -1,6 +1,6 @@
 import Cards from "./Cards"
 import { connect } from "react-redux"
-import { addCardToSet, setCurrentCard } from "../../cardsActions"
+import { addCardToSet, resetCardPile, setCurrentCard } from "../../cardsActions"
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -13,6 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onAcceptCard: (card) => dispatch(addCardToSet(card)),
+    onReset: () => dispatch(resetCardPile()),
     setCurrentCard: (card) => dispatch(setCurrentCard(card)),
   }
 }
