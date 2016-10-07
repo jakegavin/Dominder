@@ -1,5 +1,5 @@
 import React from "react"
-import Cards from "./Cards"
+import CardsContainer from "./cards/scenes/cards/CardsContainer"
 import { List } from "immutable"
 import { StyleSheet, Text, View } from "react-native"
 
@@ -16,7 +16,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Cards />
+        <CardsContainer />
       </View>
     )
   }

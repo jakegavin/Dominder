@@ -1,8 +1,8 @@
 import { combineReducers } from "redux"
-import set from "./setReducer"
+import cards from "./cards/cardsReducer"
 
 const rootReducer = combineReducers({
-  set,
+  cards,
 })
 
 export default rootReducer
