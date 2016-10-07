@@ -4,3 +4,10 @@ export const addCardToSet = (card) => {
     card: card,
   }
 }
+
+export const setCurrentCard = (card) => {
+  return {
+    type: "CARDS_SET_CURRENT_CARD",
+    card: card,
+  }
+}

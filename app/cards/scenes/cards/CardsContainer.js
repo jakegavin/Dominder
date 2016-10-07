@@ -1,17 +1,19 @@
 import Cards from "./Cards"
 import { connect } from "react-redux"
-import { addCardToSet } from "../../cardsActions"
+import { addCardToSet, setCurrentCard } from "../../cardsActions"
 
 const mapStateToProps = (state, ownProps) => {
   return {
     cards: state.cards.get("cardPile"),
-    set: state.cards.get("selectedSet")
+    currentCard: state.cards.get("currentCard"),
+    set: state.cards.get("selectedSet"),
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAcceptCard: (card) => dispatch(addCardToSet(card))
+    onAcceptCard: (card) => dispatch(addCardToSet(card)),
+    setCurrentCard: (card) => dispatch(setCurrentCard(card)),
   }
 }
 

@@ -2,19 +2,11 @@ import React from "react"
 import CardStackCard from "./CardStackCard"
 
 export default class CardStack extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      card: this.props.cards ? this.props.cards[0] : null,
-    }
-  }
-
   render() {
-    if (this.state.card) {
+    if (this.props.currentCard) {
       return (
         <CardStackCard
-          card={this.state.card}
+          card={this.props.currentCard}
           getNextCard={this._showNextCard.bind(this)}
           onAccept={this.props.onAccept}
           onDecline={this.props.onDecline}
@@ -28,7 +20,7 @@ export default class CardStack extends React.Component {
 
   _showNextCard() {
     let card
-    let currentCardIndex = this.props.cards.indexOf(this.state.card)
+    let currentCardIndex = this.props.cards.indexOf(this.props.currentCard)
     let nextIndex = currentCardIndex + 1
 
     // Checks to see if last card.
@@ -39,15 +31,17 @@ export default class CardStack extends React.Component {
       nextCard = this.props.cards[nextIndex]
     }
 
-    this.setState({ card: nextCard })
+    this.props.setCurrentCard(nextCard)
   }
 }
 
 CardStack.propTypes = {
   cards: React.PropTypes.array,
+  currentCard: React.PropTypes.object,
   loop: React.PropTypes.bool,
   renderCard: React.PropTypes.func.isRequired,
   renderEmptyStack: React.PropTypes.func.isRequired,
+  setCurrentCard: React.PropTypes.func.isRequired,
 }
 
 CardStack.defaultProps = {
