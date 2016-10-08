@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: 150,
   },
-  title: {
+  name: {
     fontSize: 24,
     color: "white",
   }
@@ -19,10 +19,10 @@ export default class Card extends React.Component {
   render() {
     return (
       <View style={styles.card} >
-        <Text style={styles.title}>
-          {this.props.title}
+        <Text style={styles.name}>
+          {this.props.name}
         </Text>
-        <Text style={styles.title}>
+        <Text style={styles.name}>
           ${this.props.cost}
         </Text>
 
@@ -33,6 +33,6 @@ export default class Card extends React.Component {
 }
 
 Card.propTypes = {
-  title: React.PropTypes.string.isRequired,
+  name: React.PropTypes.string.isRequired,
   cost: React.PropTypes.number.isRequired,
 }

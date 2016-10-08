@@ -25,8 +25,8 @@ export default class Cards extends React.Component {
   }
 
   renderCard(cardData) {
-    const { cost, title } = cardData
-    return <Card title={title} cost={cost} />
+    const { cost, name } = cardData
+    return <Card name={name} cost={cost} />
   }
 
   renderEmptyStack() {
@@ -41,7 +41,7 @@ export default class Cards extends React.Component {
   }
 
   handleDecline(card) {
-    console.log(`Decline for ${card.title}`)
+    console.log(`Decline for ${card.name}`)
   }
 }
 
