@@ -1,7 +1,6 @@
 import React from "react"
-import CardsContainer from "./cards/scenes/cards/CardsContainer"
-import { List } from "immutable"
-import { StyleSheet, Text, View } from "react-native"
+import TabNavigationLayout from "./navigation/TabNavigationLayout"
+import { StyleSheet, View } from "react-native"
 
 const styles = {
   appContainer: {
@@ -14,7 +13,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.appContainer}>
-        <CardsContainer />
+        <TabNavigationLayout />
       </View>
     )
   }
