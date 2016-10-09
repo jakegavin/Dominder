@@ -1,6 +1,6 @@
 import React from "react"
 import CardsContainer from "../cards/scenes/cards/CardsContainer"
-import Preferences from "../preferences/scenes/preferences/Preferences"
+import PreferencesContainer from "../preferences/scenes/preferences/PreferencesContainer"
 import { TabNavigation, TabNavigationItem } from "@exponent/ex-navigation"
 
 export default class TabNavigationLayout extends React.Component {
@@ -20,7 +20,7 @@ export default class TabNavigationLayout extends React.Component {
           id="preferences"
           title="Preferences"
         >
-          <Preferences />
+          <PreferencesContainer />
         </TabNavigationItem>
       </TabNavigation>
     )
