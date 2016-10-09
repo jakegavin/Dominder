@@ -2,25 +2,41 @@ import React from "react"
 import Card from "./Card"
 import CardStack from "./CardStack"
 import SetStats from "./SetStats"
-import { Text, TouchableHighlight, View } from "react-native"
+import BottomButtons from "./BottomButtons"
+import { StyleSheet, Text, TouchableHighlight, View } from "react-native"
 import { List, Map } from "immutable"
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: "center",
+    backgroundColor: "#F5FCFF",
+    flex: 1,
+  },
+  cardStack: {
+    flex: 1,
+    justifyContent: "center",
+  }
+})
 
 export default class Cards extends React.Component {
   render() {
     return (
-      <View>
-        <CardStack
-          cards={this.props.cards.toArray()}
-          currentCard={this.props.currentCard}
-          loop={false}
-          onAccept={this.props.onAcceptCard}
-          onDecline={this.handleDecline}
-          renderCard={this.renderCard}
-          renderEmptyStack={this.renderEmptyStack.bind(this)}
-          setCurrentCard={this.props.setCurrentCard}
-        />
+      <View style={styles.container}>
         <SetStats setCards={this.props.set} />
-    </View>
+        <View style={styles.cardStack}>
+          <CardStack
+            cards={this.props.cards.toArray()}
+            currentCard={this.props.currentCard}
+            loop={false}
+            onAccept={this.props.onAcceptCard}
+            onDecline={this.handleDecline}
+            renderCard={this.renderCard}
+            renderEmptyStack={this.renderEmptyStack.bind(this)}
+            setCurrentCard={this.props.setCurrentCard}
+          />
+        </View>
+        <BottomButtons onReset={this.props.onReset} />
+      </View>
     )
   }
 

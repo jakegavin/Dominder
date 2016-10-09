@@ -5,9 +5,9 @@ const styles = StyleSheet.create({
   card: {
     alignItems: "center",
     backgroundColor: "#1f509e",
-    height: 150,
+    height: 300,
     justifyContent: "center",
-    width: 150,
+    width: 188,
   },
   name: {
     fontSize: 24,
