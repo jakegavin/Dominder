@@ -6,9 +6,9 @@ export default class SetStats extends React.Component {
   get costCounts() {
     return this.props.setCards.reduce(
       (costMap, card) => {
-        const currentCount = costMap.get(card.cost) || 0
+        const currentCount = costMap.get(card.get("cost")) || 0
         console.log(costMap, currentCount)
-        return costMap.set(card.cost, currentCount + 1)
+        return costMap.set(card.get("cost"), currentCount + 1)
       },
       new Map(),
     )

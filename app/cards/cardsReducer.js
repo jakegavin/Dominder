@@ -1,19 +1,8 @@
 import { List, Map } from "immutable"
+import Immutable from "immutable"
+import cardsData from "./cards.json"
 
-const DEFAULT_CARD_PILE = new List([
-  { name: "Card 1", cost: 1 },
-  { name: "Card 2", cost: 4  },
-  { name: "Card 3", cost: 5  },
-  { name: "Card 4", cost: 3  },
-  { name: "Card 5", cost: 2  },
-  { name: "Card 6", cost: 4  },
-  { name: "Card 7", cost: 5  },
-  { name: "Card 8", cost: 1  },
-  { name: "Card 9", cost: 4  },
-  { name: "Card 10", cost: 4  },
-  { name: "Card 11", cost: 3  },
-  { name: "Card 12", cost: 2  },
-])
+const DEFAULT_CARD_PILE = Immutable.fromJS(cardsData)
 
 const DEFAULT_CARDS = new Map({
   cardPile: DEFAULT_CARD_PILE,

@@ -24,9 +24,8 @@ export default class Cards extends React.Component {
     )
   }
 
-  renderCard(cardData) {
-    const { cost, name } = cardData
-    return <Card name={name} cost={cost} />
+  renderCard(card) {
+    return <Card name={card.get("name")} cost={card.get("cost")} />
   }
 
   renderEmptyStack() {
