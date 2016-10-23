@@ -1,7 +1,7 @@
 import React from "react"
 import SetStatCount from "./SetStatCount"
 import { StyleSheet, Text, View } from "react-native"
-import { List, Map } from "immutable"
+import { Map } from "immutable"
 
 const styles = StyleSheet.create({
   container: {
@@ -62,5 +62,5 @@ export default class SetStats extends React.Component {
 }
 
 SetStats.propTypes = {
-  setCards: React.PropTypes.instanceOf(List).isRequired,
+  setCards: React.PropTypes.instanceOf(Map).isRequired,
 }

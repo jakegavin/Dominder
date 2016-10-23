@@ -16,7 +16,7 @@ export default class BottomButtons extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableHighlight style={styles.button} onPress={this.props.onReset}>
+        <TouchableHighlight style={styles.button} onPress={this.props.onResetPile}>
           <Text>Reset Pile</Text>
         </TouchableHighlight>
       </View>
@@ -25,5 +25,5 @@ export default class BottomButtons extends React.Component {
 }
 
 BottomButtons.propTypes = {
-  onReset: React.PropTypes.func.isRequired,
+  onResetPile: React.PropTypes.func.isRequired,
 }

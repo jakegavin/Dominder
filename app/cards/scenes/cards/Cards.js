@@ -4,7 +4,7 @@ import CardStack from "./CardStack"
 import SetStats from "./SetStats"
 import BottomButtons from "./BottomButtons"
 import { StyleSheet, Text, TouchableHighlight, View } from "react-native"
-import { List, Map } from "immutable"
+import { Map } from "immutable"
 
 const styles = StyleSheet.create({
   container: {
@@ -27,15 +27,14 @@ export default class Cards extends React.Component {
           <CardStack
             cards={this.props.cards.toArray()}
             currentCard={this.props.currentCard}
-            loop={false}
+            getNextCard={this.props.onResetCurrentCard}
             onAccept={this.props.onAcceptCard}
-            onDecline={this.handleDecline}
+            onDecline={this.props.onDeclineCard}
             renderCard={this.renderCard}
             renderEmptyStack={this.renderEmptyStack.bind(this)}
-            setCurrentCard={this.props.setCurrentCard}
           />
         </View>
-        <BottomButtons onReset={this.props.onReset} />
+        <BottomButtons onResetPile={this.handleReset.bind(this)} />
       </View>
     )
   }
@@ -47,7 +46,7 @@ export default class Cards extends React.Component {
   renderEmptyStack() {
     return (
       <View>
-        <TouchableHighlight onPress={this.props.onReset}>
+        <TouchableHighlight onPress={this.handleReset.bind(this)}>
           <Text>Reset pile?</Text>
         </TouchableHighlight>
         <Text>No more cards :(</Text>
@@ -55,15 +54,17 @@ export default class Cards extends React.Component {
     )
   }
 
-  handleDecline(card) {
-    console.log(`Decline for ${card.name}`)
+  handleReset() {
+    this.props.onResetPile()
+    this.props.onResetCurrentCard()
   }
 }
 
 Cards.propTypes = {
-  cards: React.PropTypes.instanceOf(List),
+  cards: React.PropTypes.instanceOf(Map),
   currentCard: React.PropTypes.object,
   onAcceptCard: React.PropTypes.func.isRequired,
-  onReset: React.PropTypes.func.isRequired,
-  setCurrentCard: React.PropTypes.func.isRequired,
+  onDeclineCard: React.PropTypes.func.isRequired,
+  onResetCurrentCard: React.PropTypes.func.isRequired,
+  onResetPile: React.PropTypes.func.isRequired,
 }

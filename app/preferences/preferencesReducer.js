@@ -3,7 +3,7 @@ import { Map } from "immutable"
 const DEFAULT_PREFERENCES = new Map({
   expansions: new Map({
     Promo: false,
-    Dominion: true,
+    Dominion: false,
     Intrigue: false,
     Seaside: false,
     Alchemy: false,

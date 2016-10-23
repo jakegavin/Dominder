@@ -1,14 +1,20 @@
 import { Map, Record } from "immutable"
 
 export const Card = new Record({
-  name: null,
-  expansion: null,
   cost: null,
   costAttributes: new Map({
     overpayAllowed: null,
     requiresPotion: null,
   }),
+  expansion: null,
+  id: null,
+  name: null,
   notInSupply: null,
+  status: new Map({
+    inPile: false,
+    inSet: false,
+    viewed: false,
+  }),
   type: new Map({
     action: null,
     attack: null,
