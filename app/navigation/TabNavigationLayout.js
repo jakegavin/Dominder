@@ -1,6 +1,7 @@
 import React from "react"
 import CardsContainer from "../cards/scenes/cards/CardsContainer"
 import PreferencesContainer from "../preferences/scenes/preferences/PreferencesContainer"
+import SetContainer from "../cards/scenes/set/SetContainer"
 import { TabNavigation, TabNavigationItem } from "@exponent/ex-navigation"
 
 export default class TabNavigationLayout extends React.Component {
@@ -10,6 +11,12 @@ export default class TabNavigationLayout extends React.Component {
         initialTab="cards"
         tabBarHeight={48}
       >
+        <TabNavigationItem
+          id="set"
+          title="Set"
+        >
+          <SetContainer />
+        </TabNavigationItem>
         <TabNavigationItem
           id="cards"
           title="Cards"
